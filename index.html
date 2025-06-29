@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <style>
+        body{
+            box-sizing: border-box;
+            font-family: 'Roboto',cursive;
+            font-size: 24px;
+            line-height: 140%;
+            text-align: center;
+            background: url('./wtsp\ proj\ 1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        h1{
+            color: #ff4893;
+        }
+        header{
+            width: 80%;
+            background-color: lightgray;
+            color: #333;
+            padding: 3%;
+            margin: 0 auto;
+        }
+        .main{
+            width: 80%;
+            background-color: lightgray;
+            padding: 3%;
+            margin: 0 auto;
+        }
+        input{
+            display: inline-block;
+            padding: 20px;
+            border-radius: 15px;
+            border: none;
+            font-size: 110%;
+
+        }
+        .add{
+            display: inline-block;
+            margin: 20px;
+            font-size: 200%;
+
+        }
+        .calc{
+            padding: 1%;
+            width: 20%;
+            font-size: 120%;
+            border-radius: 10px;
+            color:#fff;
+            border:none;
+            background: #ff4893;
+        }
+        button{
+            margin-top: 50px;
+        }
+        footer{
+            width: 80%;
+            padding: 3%;
+            background-color: lightpink;
+            margin: auto;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .output{
+            color:#ff4893;
+            font-size: 20%;
+            height:50px;
+            font-size: 200%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+   <header>
+    <h1>Love Calculator</h1>
+    <p>Find out if you and your partner are compatible!</p>
+    </header> 
+    
+        <div class="main">
+            <input type="text" class="yourname" placeholder="Enter your name">
+            <span class="add">+</span>
+            <input type="text" class="theirname" placeholder="Enter their name">
+            <section class="button">
+                <button type="button" class="calc">Calculate!</button>
+            </section>
+            <div class="output">
+
+            </div>
+
+        </div>
+    <footer>
+        <p>&copy Amank Kumar</p>
+    </footer>
+    <script>
+        document.getElementsByClassName("calc")[0].onclick = function(){
+            var compatibility = lovecalc();
+            if (typeof compatibility ==="string"){
+            document.getElementsByClassName("output")[0].innerHTML= "<p>"+ compatibility + "</p>"; 
+
+            }else{
+            document.getElementsByClassName("output")[0].innerHTML= "<p>"+ compatibility+ "% compatible!</p>"; 
+            }
+            document.querySelector(".yourname").value = "";
+            document.querySelector(".theirname").value = "";
+
+        }
+        function lovecalc(name1 , name2){
+            name1 = document.getElementsByClassName("yourname")[0].value;
+            name2 = document.getElementsByClassName("theirname")[0].value;
+            if(name1 === "" || name2 ===""){
+                return "Please enter both names";
+            }else{
+            var result = Math.floor(Math.random()*100 + 1);
+            return result;
+            }
+        }
+    </script>
+</body>
+</html>
